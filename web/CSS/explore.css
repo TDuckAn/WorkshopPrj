@@ -1,0 +1,65 @@
+/* Purple Theme */
+.btn-purple {
+    background-color: #9b59b6; /* Bootstrap purple */
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    padding: 10px 15px;
+    transition: all 0.3s ease-in-out;
+    border: none;
+}
+
+
+
+.btn-purple:hover {
+    background-color: #9b59b6;
+    color: #ffeb3b;
+    transform: scale(1.05);
+}
+
+/* Product Table Styling */
+.table-purple {
+    background-color: #9b59b6;
+    color: white;
+}
+
+.product-table th {
+    font-weight: bold;
+}
+
+.product-img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+/* Product Cards */
+.product-card {
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+}
+
+/* Search Input */
+.search-input {
+    border-radius: 8px;
+    border: 2px solid #9b59b6;
+}
+
+/* Custom Select */
+.custom-select {
+    border-radius: 8px;
+    border: 2px solid #9b59b6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .product-img {
+        width: 60px;
+        height: 60px;
+    }
+}

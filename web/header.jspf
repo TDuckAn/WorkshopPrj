@@ -2,31 +2,39 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <c:set var="user" value="${sessionScope.loggedInUser}" />
-<c:set var="role" value="${user.roleInSystem == 1 ? 'admin' : (user.roleInSystem == 2 ? 'staff' : 'user')}" />
+<c:set var="role" value="${user.roleInSystem == 1 ? 'Admin' : (user.roleInSystem == 2 ? 'Staff' : 'User')}" />
+
+<!-- Assign different colors for different roles -->
+<c:set var="roleColor" value="${user.roleInSystem == 1 ? '#FFD700' : (user.roleInSystem == 2 ? '#5DADE2' : '#58D68D')}" />
 <c:set var="fullName" value="${user.lastName} ${user.firstName}" />
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+<head>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/navbar.css">
+</head>
+
+<nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Welcome  
-            <span class="text-danger fw-bold">${not empty user ? role : 'Guest'}</span> 
+        <!-- Welcome Message with Dynamic Role Color -->
+        <span class="navbar-brand">Welcome  
+            <span style="color: ${roleColor}; font-weight: bold;">
+                ${not empty user ? role : 'Guest'}
+            </span> 
             ${not empty user ? '['.concat(fullName).concat(']') : ''}
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        </span>
+
+        <!-- Mobile Toggle Button -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-4">  
-                <li class="nav-item">
-                    <a class="nav-link" href="${pageContext.request.contextPath}/index.jsp">Home</a>
-                </li>
 
-  
+        <!-- Navbar Links -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-4">
+                <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/index.jsp">Home</a></li>
+
                 <c:if test="${user.roleInSystem == 1 || user.roleInSystem == 2}">
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Accounts
-                        </a>
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Accounts</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="${pageContext.request.contextPath}/AccountServlet">List Accounts</a></li>
                             <li><a class="dropdown-item" href="${pageContext.request.contextPath}/AddAcc">Add Accounts</a></li>
@@ -34,9 +42,7 @@
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Categories
-                        </a>
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Categories</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="${pageContext.request.contextPath}/CategoryServlet">List Categories</a></li>
                             <li><a class="dropdown-item" href="${pageContext.request.contextPath}/AddCategory">Add Categories</a></li>
@@ -44,9 +50,7 @@
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Products
-                        </a>
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Products</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="${pageContext.request.contextPath}/ProductServlet">List Products</a></li>
                             <li><a class="dropdown-item" href="${pageContext.request.contextPath}/AddProduct">Add Products</a></li>
@@ -54,33 +58,24 @@
                     </li>
                 </c:if>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="${pageContext.request.contextPath}/productDisplay">Explore</a>
-                </li>
+                <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/productDisplay">Explore</a></li>
             </ul>
 
+            <!-- Right Section: Profile, Login/Register, or Logout -->
             <ul class="navbar-nav ms-auto">
-           
                 <c:if test="${empty sessionScope.loggedInUser}">
-                    <li class="nav-item">
-                        <a class="nav-link" href="${pageContext.request.contextPath}/login.jsp">
-                            <i class="bi bi-box-arrow-in-right"></i> Login
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="${pageContext.request.contextPath}/register.jsp">
-                            <i class="bi bi-person-plus"></i> Register
-                        </a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link btn btn-login" href="${pageContext.request.contextPath}/login.jsp">Login</a></li>
+                    <li class="nav-item"><a class="nav-link btn btn-register" href="${pageContext.request.contextPath}/register.jsp">Register</a></li>
                 </c:if>
 
-           
                 <c:if test="${not empty sessionScope.loggedInUser}">
+                    <!-- Profile Button -->
                     <li class="nav-item">
-                        <a class="nav-link text-danger" href="${pageContext.request.contextPath}/LogoutServlet">
-                            <i class="bi bi-box-arrow-right"></i> Logout
-                        </a>
+                        <a class="nav-link btn btn-profile" href="${pageContext.request.contextPath}/profile.jsp">Profile</a>
                     </li>
+
+                    <!-- Logout Button -->
+                    <li class="nav-item"><a class="nav-link btn btn-logout" href="${pageContext.request.contextPath}/LogoutServlet">Logout</a></li>
                 </c:if>
             </ul>
         </div>
