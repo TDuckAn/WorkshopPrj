@@ -57,17 +57,22 @@ public class ProductDetails extends HttpServlet {
 
             HttpSession session = request.getSession();
             Object obj = session.getAttribute("viewedProducts");
-
             List<DTOProduct> viewedProducts;
+            List<Integer> viewedPrices;
+
             if (obj instanceof List<?>) {
                 viewedProducts = new ArrayList<>();
+                viewedPrices = new ArrayList<>();
                 for (Object item : (List<?>) obj) {
                     if (item instanceof DTOProduct) {
-                        viewedProducts.add((DTOProduct) item);
+                        DTOProduct p = (DTOProduct) item;
+                        viewedProducts.add(p);
+                        viewedPrices.add(p.getPrice());
                     }
                 }
             } else {
                 viewedProducts = new ArrayList<>();
+                viewedPrices = new ArrayList<>();
             }
 
             boolean alreadyViewed = viewedProducts.stream()
@@ -75,9 +80,25 @@ public class ProductDetails extends HttpServlet {
 
             if (!alreadyViewed) {
                 viewedProducts.add(product);
+                viewedPrices.add(product.getPrice());
             }
 
             session.setAttribute("viewedProducts", viewedProducts);
+
+            // Calculate average price
+            double averagePrice = viewedPrices.stream().mapToDouble(Integer::doubleValue).average().orElse(0);
+            
+            // Determine wealth status
+            String wealthStatus;
+            if (averagePrice < 5000000) {
+                wealthStatus = "Poor";
+            } else if (averagePrice >= 5000000 && averagePrice <= 15000000) {
+                wealthStatus = "Normal";
+            } else {
+                wealthStatus = "Rich";
+            }
+            
+            session.setAttribute("wealthStatus", wealthStatus);
 
             request.getRequestDispatcher("productDetail.jsp").forward(request, response);
 

@@ -301,6 +301,30 @@ public class DAOProduct implements Accessible<DTOProduct> {
         }
         return categories;
     }
+    
+    public String determineUserWealth(List<DTOProduct> viewedProducts) {
+    int lowPrice = 0, mediumPrice = 0, highPrice = 0;
+
+    for (DTOProduct product : viewedProducts) {
+        int price = product.getPrice();
+        
+        if (price < 5000000) {
+            lowPrice++;
+        } else if (price <= 15000000) {
+            mediumPrice++;
+        } else {
+            highPrice++;
+        }
+    }
+
+    if (lowPrice > mediumPrice && lowPrice > highPrice) {
+        return "Poor";
+    } else if (mediumPrice >= highPrice) {
+        return "Normal";
+    } else {
+        return "Rich";
+    }
+}
 }
 
 

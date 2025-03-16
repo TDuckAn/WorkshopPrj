@@ -137,7 +137,11 @@ public class AuthFilter implements Filter {
             chain.doFilter(request, response);
             return;
         }
-
+        
+        if (user == null && isRestrictedPage) {
+        res.sendRedirect(contextPath + "/accessDenied.jsp");
+        return;
+    }
        
         if (isRestrictedPage && user.getRoleInSystem() == 3) {
             res.sendRedirect(contextPath + "/accessDenied.jsp");
