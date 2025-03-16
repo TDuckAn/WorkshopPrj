@@ -1,0 +1,87 @@
+/* Navbar Styling */
+.navbar {
+    background-color: #9b59b6 !important;
+    padding: 15px 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Welcome Text */
+.navbar-brand {
+    font-size: 20px;
+    font-weight: bold;
+    color: white !important;
+}
+
+/* Navbar Links */
+.navbar-nav .nav-link {
+    color: white !important;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease-in-out;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ffeb3b !important;
+    transform: scale(1.05);
+}
+
+/* Active Link */
+.navbar-nav .nav-item .active {
+    border-bottom: 2px solid #ffeb3b;
+}
+
+/* Dropdown Styling */
+.navbar .dropdown-menu {
+    background-color: #8e44ad !important;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .dropdown-menu .dropdown-item {
+    color: white !important;
+    padding: 10px 15px;
+    transition: background 0.3s ease-in-out;
+}
+
+.navbar .dropdown-menu .dropdown-item:hover {
+    background-color: #7d3c98 !important;
+}
+
+/* Navbar Toggler */
+.navbar-toggler {
+    border: none;
+    background-color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+/* Buttons */
+.btn-login, .btn-register, .btn-logout {
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    padding: 10px 15px;
+    transition: all 0.3s ease-in-out;
+    border: white;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    .navbar-nav {
+        text-align: center;
+    }
+
+    .navbar-nav .nav-item {
+        margin-bottom: 10px;
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 18px;
+    }
+}

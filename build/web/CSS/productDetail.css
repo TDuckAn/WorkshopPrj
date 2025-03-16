@@ -1,0 +1,86 @@
+/* Product Image Styling */
+.product-img-container {
+    width: 100%;
+    height: 350px; /* Slightly bigger for a premium feel */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 15px;
+    background: #fff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.product-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures image fills container */
+    border-radius: 12px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.product-img:hover {
+    transform: scale(1.05);
+}
+
+/* Buttons */
+.btn-gradient {
+    background: linear-gradient(135deg, #6f42c1, #8a5cd9);
+    color: white !important;
+    font-weight: bold;
+    border-radius: 12px;
+    padding: 12px 18px;
+    transition: all 0.3s ease-in-out;
+    border: none;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-gradient:hover {
+    background: linear-gradient(135deg, #5a32a3, #7b4ec6);
+    color: #ffeb3b !important;
+    transform: scale(1.03);
+}
+
+/* Product Details Card */
+.card {
+    border-radius: 15px;
+    padding: 20px;
+    transition: all 0.3s ease-in-out;
+    background: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+    transform: scale(1.03);
+}
+
+/* Backgrounds */
+.bg-light {
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+/* Recently Viewed Product Cards */
+.product-card {
+    transition: transform 0.3s ease-in-out;
+}
+
+.product-card:hover {
+    transform: scale(1.03);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .product-img-container {
+        height: 220px;
+    }
+
+    .btn-gradient {
+        width: 100%; /* Full-width button for better UX */
+        padding: 10px 0;
+    }
+}
