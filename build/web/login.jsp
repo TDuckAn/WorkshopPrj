@@ -20,11 +20,6 @@
             <div class="auth-box">
                 <img src="${pageContext.request.contextPath}/images/img_avatar1.png" class="auth-image" alt="Login Icon">
                 <h3 class="mb-4 text-center">Login</h3>
-
-                <c:if test="${not empty errorMsg}">
-                    <div class="alert alert-danger">${errorMsg}</div>
-                </c:if>
-
                 <form action="LoginServlet" method="post">
                     <div class="mb-3">
                         <label for="account" class="form-label">Username</label>
@@ -34,6 +29,10 @@
                         <label for="pass" class="form-label">Password</label>
                         <input type="password" class="form-control" id="pass" name="pass" required>
                     </div>
+                    <c:if test="${not empty errorMessage}">
+                        <div class="alert alert-danger">${errorMessage}</div>
+                        <c:remove var="errorMessage" scope="session"/>
+                    </c:if>
 
                     <button type="submit" class="btn btn-primary w-100">Login</button>
                 </form>

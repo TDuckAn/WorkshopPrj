@@ -14,7 +14,7 @@
 
 <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
-        <!-- Welcome Message with Dynamic Role Color -->
+  
         <span class="navbar-brand">Welcome  
             <span style="color: ${roleColor}; font-weight: bold;">
                 ${not empty user ? role : 'Guest'}
@@ -22,7 +22,7 @@
             ${not empty user ? '['.concat(fullName).concat(']') : ''}
         </span>
 
-        <!-- Mobile Toggle Button -->
+   
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>

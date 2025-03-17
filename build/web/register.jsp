@@ -75,7 +75,7 @@
                     <small>Already have an account? <a href="login.jsp">Login here</a></small>
                 </div>
 
-                <!-- Continue as Guest Button -->
+               
                 <div class="mt-3 text-center">
                     <a href="index.jsp" class="btn btn-outline-secondary w-100">Continue as Guest</a>
                 </div>
