@@ -3,17 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/H:/Class/PRJ/fuck/AnTDSE190747_Workshop1/Workshop1/web/CSS/profile.css</file>
             <file>file:/H:/Class/PRJ/fuck/AnTDSE190747_Workshop1/Workshop1/web/index.jsp</file>
-            <file>file:/H:/Class/PRJ/fuck/AnTDSE190747_Workshop1/Workshop1/web/profile.jsp</file>
             <file>file:/H:/Class/PRJ/fuck/AnTDSE190747_Workshop1/Workshop1/web/private/productUpdate.jsp</file>
             <file>file:/H:/Class/PRJ/fuck/AnTDSE190747_Workshop1/Workshop1/web/CSS/explore.css</file>
+            <file>file:/H:/Class/PRJ/fuck/AnTDSE190747_Workshop1/Workshop1/src/java/Model/DAOAccount.java</file>
+            <file>file:/H:/Class/PRJ/fuck/AnTDSE190747_Workshop1/Workshop1/src/java/Controller/productDisplay.java</file>
+            <file>file:/H:/Class/PRJ/fuck/AnTDSE190747_Workshop1/Workshop1/src/java/Model/DAOProduct.java</file>
+            <file>file:/H:/Class/PRJ/fuck/AnTDSE190747_Workshop1/Workshop1/web/CSS/profile.css</file>
+            <file>file:/H:/Class/PRJ/fuck/AnTDSE190747_Workshop1/Workshop1/web/profile.jsp</file>
             <file>file:/H:/Class/PRJ/fuck/AnTDSE190747_Workshop1/Workshop1/web/CSS/navbar.css</file>
             <file>file:/H:/Class/PRJ/fuck/AnTDSE190747_Workshop1/Workshop1/web/CSS/index.css</file>
             <file>file:/H:/Class/PRJ/fuck/AnTDSE190747_Workshop1/Workshop1/web/header.jspf</file>
             <file>file:/H:/Class/PRJ/fuck/AnTDSE190747_Workshop1/Workshop1/src/java/Controller/ProductDetails.java</file>
-            <file>file:/H:/Class/PRJ/fuck/AnTDSE190747_Workshop1/Workshop1/src/java/Controller/productDisplay.java</file>
-            <file>file:/H:/Class/PRJ/fuck/AnTDSE190747_Workshop1/Workshop1/src/java/Model/DAOProduct.java</file>
+            <file>file:/H:/Class/PRJ/fuck/AnTDSE190747_Workshop1/Workshop1/src/java/Filter/AuthFilter.java</file>
         </group>
     </open-files>
 </project-private>

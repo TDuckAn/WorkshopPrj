@@ -50,8 +50,9 @@ public class LoginServlet extends HttpServlet {
                 session.setAttribute("loggedInUser", user);
                 response.sendRedirect("index.jsp");
             } else {
-                request.setAttribute("errorMessage", "Invalid account or password.");
-                request.getRequestDispatcher("login.jsp").forward(request, response);
+                HttpSession session = request.getSession();
+                session.setAttribute("errorMessage", "Invalid account or password.");
+                response.sendRedirect("login.jsp");
             }
 
         } catch (ClassNotFoundException | SQLException ex) {
