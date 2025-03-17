@@ -1,4 +1,4 @@
-/* General Styling */
+
 body {
     background-color: #f4f0f8;
     font-family: Arial, sans-serif;
@@ -7,7 +7,7 @@ body {
     padding: 0;
 }
 
-/* Centered Content Box */
+
 .container {
     max-width: 800px;
     margin: 50px auto;
@@ -18,7 +18,7 @@ body {
     text-align: center;
 }
 
-/* Title Styling */
+
 .title {
     font-size: 36px;
     font-weight: bold;
@@ -26,14 +26,14 @@ body {
     margin-bottom: 15px;
 }
 
-/* Visitor Count */
+
 .visitor-count {
     font-size: 18px;
     color: #555;
     font-weight: 500;
 }
 
-/* Button Styling */
+
 .btn-primary {
     background-color: #9b59b6;
     border: none;
@@ -50,7 +50,7 @@ body {
     transform: scale(1.05);
 }
 
-/* Responsive Design */
+
 @media (max-width: 768px) {
     .container {
         margin: 30px 15px;

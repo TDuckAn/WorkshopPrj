@@ -1,10 +1,10 @@
-/* General Styles */
+
 body {
-    background: #f5e6ff; /* Light purple */
+    background: #f5e6ff; 
     font-family: 'Arial', sans-serif;
 }
 
-/* Authentication Containers */
+
 .auth-container {
     display: flex;
     justify-content: center;
@@ -22,24 +22,24 @@ body {
     width: 100%;
 }
 
-/* Login & Register Images */
+
 .auth-image {
     width: 80px;
     margin-bottom: 10px;
 }
 
-/* Buttons */
+
 .btn-primary {
-    background: #9b59b6; /* Purple shade */
+    background: #9b59b6; 
     border: none;
     transition: 0.3s;
 }
 
 .btn-primary:hover {
-    background: #8e44ad; /* Slightly darker purple */
+    background: #8e44ad;
 }
 
-/* Links */
+
 a {
     color: #9b59b6;
     font-weight: bold;

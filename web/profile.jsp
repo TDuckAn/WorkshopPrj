@@ -1,10 +1,3 @@
-<%-- 
-    Document   : profile
-    Created on : 16-Mar-2025, 18:07:47
-    Author     : Admin
---%>
-
-
 <%@page import="Model.DTOAccount" %>
 <%@page import="javax.servlet.http.HttpSession" %>
 
@@ -17,6 +10,9 @@
         response.sendRedirect("login.jsp");
         return;
     }
+
+    // Determine gender-based profile image
+    String profileImage = user.isGender() ? "male.png" : "female.png";
 %>
 
 <!DOCTYPE html>
@@ -37,24 +33,25 @@
         <div class="container mt-5">
             <div class="card shadow-lg p-4">
                 <h2 class="text-center">Profile Information</h2>
-                
-                <div class="row">
-                    <div class="col-md-6">
-                        <h5><i class="bi bi-person-circle"></i> Name: <span class="text-primary"><%= user.getLastName() + " " + user.getFirstName() %></span></h5>
-                        <h5><i class="bi bi-person-circle"></i> Account: <span class="text-secondary"><%= user.getAccount() %></span></h5>
-                        <h5><i class="bi bi-phone"></i> Phone: <span class="text-secondary"><%= user.getPhone() %></span></h5>
+
+                <div class="row align-items-center">
+                    <div class="col-md-4 text-center">
+                        <img src="${pageContext.request.contextPath}/images/<%= user.isGender() ? "img_avatar1.png" : "img_avatar2.png"%>" 
+                             class="profile-img" alt="Profile Image">
                     </div>
 
-                    <div class="col-md-6">
-                        <h5><i class="bi bi-person-badge"></i> Role: 
-                            <span class="badge bg-<%= user.getRoleInSystem() == 1 ? "warning" : (user.getRoleInSystem() == 2 ? "info" : "success") %>">
-                                <%= user.getRoleInSystem() == 1 ? "Admin" : (user.getRoleInSystem() == 2 ? "Staff" : "User") %>
+                    <div class="col-md-8">
+                        <h5><i class="bi bi-person-circle"></i> Name: <span class="text-primary"><%= user.getLastName() + " " + user.getFirstName()%></span></h5>
+                        <h5><i class="bi bi-person-badge"></i> Account: <span class="text-secondary"><%= user.getAccount()%></span></h5>
+                        <h5><i class="bi bi-phone"></i> Phone: <span class="text-secondary"><%= user.getPhone()%></span></h5>
+                        <h5><i class="bi bi-gender-ambiguous"></i> Gender: 
+                            <span class="badge bg-<%= user.isGender() ? "info" : "warning"%>">
+                                <%= user.isGender() ? "Male" : "Female"%>
                             </span>
                         </h5>
-
                         <h5><i class="bi bi-cash"></i> Wealth Status: 
-                            <span class="badge bg-<%= "Poor".equals(wealthStatus) ? "danger" : ("Normal".equals(wealthStatus) ? "primary" : "success") %>">
-                                <%= wealthStatus != null ? wealthStatus : "Unknown" %>
+                            <span class="badge bg-<%= "Poor".equals(wealthStatus) ? "danger" : ("Normal".equals(wealthStatus) ? "primary" : "success")%>">
+                                <%= wealthStatus != null ? wealthStatus : "Unknown"%>
                             </span>
                         </h5>
                     </div>
@@ -67,4 +64,3 @@
         </div>
     </body>
 </html>
-
